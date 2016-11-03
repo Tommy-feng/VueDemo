@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View-Model</title>
+</head>
+<body>
+    <div id="app">
+        <h1>数据绑定</h1>
+
+        <!--数据的双向绑定-->
+        <h4>数据的双向绑定</h4>
+        input标签：<br>
+        <input type="text" v-model="test"><br><br>
+        textarea标签：<br>
+        <textarea v-model="test"></textarea><br>
+        <p>p标签：</p>
+        <p>{{test}}</p>
+
+        <!--表达式-->
+        <h4>在Mustache标签中支持js表达式</h4>
+        eg1: <span>{{count/100}}</span><br>
+        eg2: <span>{{isTrue?true:false}}</span><br>
+        eg3: <span>{{array.split(",")}}</span>
+    </div>
+
+<script src="../bower_components/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            test: 'msg',
+            count: 200,
+            isTrue: true,
+            array: 'Hello,World'
+        }
+    })
+</script>
+</body>
+</html>

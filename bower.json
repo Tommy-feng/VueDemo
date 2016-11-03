@@ -1,0 +1,24 @@
+{
+  "name": "vuedemo",
+  "description": "基于vuejs的一些常见demo",
+  "main": "index.js",
+  "authors": [
+    "tommyzqfeng"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "vuejs"
+  ],
+  "homepage": "https://github.com/Tommy-feng/VueDemo",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "^2.0.3"
+  }
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 父组件模板 -->
+    <div id="app">
+        <p>messages: {{messages | json}}</p>
+        <child v-on:child-msg="'handleIt"></child>
+    </div>
+
+    <!-- 子组件模板 -->
+    <template id="child-template">
+        <div>
+            <input type="text" v-model="msg">
+            <button v-on:click="notify">Dispatch Event</button>
+        </div>
+    </template>
+</body>
+<script src="../bower_components/vue/dist/vue.min.js"></script>
+<script>
+    var Child = Vue.extend({
+        template: '#child-template',
+        data: function () {
+            return {msg: 'hello'}
+        },
+        methods: {
+            notify: function () {
+                if(this.msg.trim()) {
+                    this.$dispatch('child-msg', this.msg);
+                    this.msg = ''
+                }
+            }
+        }
+    });
+
+    Vue.component('child', Child);
+
+    new Vue({
+        el: '#app',
+        data: {
+            messages: []
+        },
+        method: {
+            'handleIt': function () {
+                console.log('doSomething');
+            }
+        },
+        events: {
+            'child-msg': function (msg) {
+                this.messages.push(msg);
+            }
+        }
+    })
+</script>
+</html>

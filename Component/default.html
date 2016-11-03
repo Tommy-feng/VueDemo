@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <global-component></global-component>
+
+        <local-component></local-component>
+    </div>
+
+    <script src="../bower_components/vue/dist/vue.min.js"></script>
+    <script>
+        /*-- start Global Component --*/
+        var GlobalComponent = Vue.extend({
+            template: '<div>This is a global Component</div>'
+        })
+
+        Vue.component('global-component',GlobalComponent);
+        /*-- end Global Component --*/
+
+        /*-- start Local Component --*/
+        var Child = Vue.extend({
+            template: '<div>This is a child Component</div>'
+        });
+        var parent = Vue.extend({
+            template: '<div>This is a parent Component<child></child></div>',
+            components: {
+                'child': Child
+            }
+        });
+        Vue.component('local-component', parent);
+        /*-- end Local Component --*/
+
+
+        new Vue({
+            el: '#app'
+        });
+
+    </script>
+</body>
+
+</html>
