@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <form action="">
+            姓名： <input type="text" v-model="person.name" lazy><br>
+            性别： <input type="radio" v-model="person.gender" value="male"> 男 <input type="radio" v-model="person.gender" value="female">女
+            <br>
+            兴趣：
+            <input type="checkbox" v-model="person.interest" value="reading"> 阅读
+            <input type="checkbox" v-model="person.interest" value="swimming"> 游戏
+            <input type="checkbox" v-model="person.interest" value="game"> 游戏
+            <input type="checkbox" v-model="person.interest" value="singing"> 唱歌 <br>
+            身份：
+            <select v-model="person.identity">
+                <option value="teacher" selected>教师</option>
+                <option value="student">学生</option>
+            </select>
+        </form>
+        <div>
+           person： <br>
+            {{person|json}}
+        </div>
+
+        <h4>v-model的三个属性（number、lazy、debounce的演示）</h4>
+        number: <input type="text" v-model="prop.number" number>
+        lazy: <input type="text" v-model="prop.lazy" lazy>
+        debounce1: <input type="text" v-model="prop.debounce" debounce="2000">
+        debounce2: <input type="text" v-model="prop.debounce" debounce="2000">
+        <div>
+            属性： <br>
+            {{prop|json}}
+        </div>
+    </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            person:{
+                name: '',
+                gender: '',
+                interest: [],
+                identity: ''
+            },
+            prop: {
+                number:12,
+                lazy:'lazyText',
+                debounce: 'debounceText'
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Directive</title>
+</head>
+<body>
+    <div id="app">
+        <h1>指令的用法</h1>
+        <!-- start v-if -->
+        <h2>1.指令v-if</h2>
+        <h4>切换单个元素</h4>
+        <p v-if="isTrue1">测试v-if</p>
+
+        <h4>切换多个元素</h4>
+        <template id="v-if-test" v-if="isTrue1">
+            <p>测试v-if-1</p>
+            <p>测试v-if-2</p>
+            <p>测试v-if-3</p>
+        </template>
+        <!-- end v-if -->
+
+        <!-- start v-show -->
+        <!-- v-if和v-show的功能是相同的，都是作为条件判断 -->
+        <!-- 区别在于v-show适合可能多次切换元素的情况，而v-if适合可能少次切换元素的情况 -->
+        <h2>2.指令v-show</h2>
+        <h4>切换单个元素</h4>
+        <p v-show="isTrue2">测试v-show</p>
+
+        <h4>切换多个元素</h4>
+        <template id="v-show-test" v-show="isTrue2">
+            <p>测试v-show-1</p>
+            <p>测试v-show-2</p>
+            <p>测试v-show-3</p>
+        </template>
+        <!-- end v-show-->
+
+        <!--start v-else-->
+        <h2>3.指令v-else</h2>
+        <h4>切换单个元素</h4>
+        <p v-if="isTrue3">v-if标签</p>
+        <p v-else>v-else标签</p>
+
+        <h4>切换多个元素</h4>
+        <template id="v-else-test" v-if="isTrue3">
+            <p>v-if-1</p>
+            <p>v-if-2</p>
+            <p>v-if-3</p>
+        </template>
+        <template v-else>
+            <p>v-else-1</p>
+            <p>v-else-2</p>
+            <p>v-else-3</p>
+        </template>
+        <!--end v-else-->
+
+    </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isTrue1: true,
+                isTrue2: true,
+                isTrue3: false
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--v-html只是将html原封不动搬过来，不会解析-->
+<div id="app">
+    <div v-html="html">
+    </div>
+</div>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            data1: 'nihao',
+            html: '<div>{{data1}}</div>'
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    p {
+        width: 100px;
+        height: 30px;
+    }
+    .classA p{
+        background: red;
+    }
+    .classA.classB p{
+        background: green;
+    }
+    .classA.classB.classC p {
+        background: black;
+    }
+</style>
+<body>
+<!--v-bind只是绑定元素的属性，最常用的是绑定class-->
+<div id="app">
+    <div v-bind:class="[isA, {classB:isB, classC:isC}]">
+        <p></p>
+    </div>
+
+    <!--简写-->
+    <div :class="[isA, {classB:isB, classC:!isC}]">
+        <p></p>
+    </div>
+</div>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            isA: 'classA',
+            isB: true,
+            isC: false
+        }
+    });
+</script>
+</body>
+</html>
